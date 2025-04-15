@@ -20,7 +20,7 @@ env:
 
 jobs:
   Production:
-    concurrency: my_mlops_project-production-bundle-job
+    concurrency: uc1_project-production-bundle-job
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,3 +33,7 @@ jobs:
         id: deploy
         run: |
           databricks bundle deploy -t prod
+      - name: Run Deployment Workflow for Test Deployment Target in Prodc Workspace
+        id: Deploying
+        run: |
+          databricks bundle run "forecast_model_validation_and_migration" -t prod

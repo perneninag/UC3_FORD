@@ -24,8 +24,8 @@ targets:
     mode: development
     default: true
     variables:
-      source_catalog: mlops_dev
-      target_catalog: mlops_stage
+      source_catalog: uc1_dev
+      target_catalog: uc1_staging
       branch_name: main
     workspace:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
@@ -34,26 +34,26 @@ targets:
     mode: production
     workspace:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
-      # We explicitly deploy to /Workspace/Users/himanshu.gupta@databricks.com to make sure we only have a single copy.
-      root_path: /Workspace/Users/himanshu.gupta@databricks.com/stage/.bundle/${bundle.name}/${bundle.target}
+      # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
+      root_path: /Workspace/Users/nageswararao.perneni@accenture.com/stage/.bundle/${bundle.name}/${bundle.target}
     variables:
-      source_catalog: mlops_stage
-      target_catalog: mlops_prod
+      source_catalog: uc1_staging
+      target_catalog: uc1_prod
       branch_name: main
     permissions:
-      - user_name: jiayi.wu@databricks.com
+      - user_name: nageswararao.perneni@accenture.com
         level: CAN_MANAGE
 
   prod:
     mode: production
     workspace:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
-      # We explicitly deploy to /Workspace/Users/himanshu.gupta@databricks.com to make sure we only have a single copy.
-      root_path: /Workspace/Users/himanshu.gupta@databricks.com/prod/.bundle/${bundle.name}/${bundle.target}
+      # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
+      root_path: /Workspace/Users/nageswararao.perneni@accenture.com/prod/.bundle/${bundle.name}/${bundle.target}
     variables:
       source_catalog: mlops_prod
       target_catalog: mlops_prod
       branch_name: release
     permissions:
-      - user_name: jiayi.wu@databricks.com
+      - user_name: nageswararao.perneni@accenture.com
         level: CAN_MANAGE

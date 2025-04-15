@@ -12,7 +12,7 @@ on:
 
 defaults:
   run:
-    working-directory: ./my_mlops_project
+    working-directory: ./uc1_project
 
 env:
   DATABRICKS_HOST: https://dbc-325dd65c-6716.cloud.databricks.com

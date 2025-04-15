@@ -25,7 +25,7 @@ targets:
     default: true
     variables:
       source_catalog: uc1_dev
-      target_catalog: uc1_staging
+      target_catalog: uc1_dev
       branch_name: main
     workspace:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
@@ -37,8 +37,8 @@ targets:
       # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
       root_path: /Workspace/Users/nageswararao.perneni@accenture.com/stage/.bundle/${bundle.name}/${bundle.target}
     variables:
-      source_catalog: uc1_staging
-      target_catalog: uc1_prod
+      source_catalog: uc1_dev
+      target_catalog: uc1_staging
       branch_name: main
     permissions:
       - user_name: nageswararao.perneni@accenture.com
@@ -51,7 +51,7 @@ targets:
       # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
       root_path: /Workspace/Users/nageswararao.perneni@accenture.com/prod/.bundle/${bundle.name}/${bundle.target}
     variables:
-      source_catalog: uc1_prod
+      source_catalog: uc1_staging
       target_catalog: uc1_prod
       branch_name: release
     permissions:

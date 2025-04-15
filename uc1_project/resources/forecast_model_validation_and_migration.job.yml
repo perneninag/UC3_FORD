@@ -11,7 +11,7 @@ resources:
           run_if: ALL_SUCCESS
           webhook_notifications: {}
       parameters:
-        - name: model_name
+        - name: ${var.source_catalog}.forecast_schema.model_name
           default: forecast_model_uc1
         - name: model_version
           default: 1

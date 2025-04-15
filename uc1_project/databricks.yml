@@ -31,11 +31,11 @@ targets:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
 
   staging:
-    mode: production
+    mode: staging
     workspace:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
-      root_path: /Workspace/Users/nageswararao.perneni@accenture.com/stage/.bundle/${bundle.name}/${bundle.target}
+      root_path: /Workspace/Users/nageswararao.perneni@accenture.com/.bundle/${bundle.name}/${bundle.target}
     variables:
       source_catalog: uc1_dev
       target_catalog: uc1_staging
@@ -49,7 +49,7 @@ targets:
     workspace:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
-      root_path: /Workspace/Users/nageswararao.perneni@accenture.com/prod/.bundle/${bundle.name}/${bundle.target}
+      root_path: /Workspace/Users/nageswararao.perneni@accenture.com/.bundle/${bundle.name}/${bundle.target}
     variables:
       source_catalog: uc1_staging
       target_catalog: uc1_prod

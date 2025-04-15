@@ -33,3 +33,7 @@ jobs:
         id: deploy
         run: |
           databricks bundle deploy -t prod
+      - name: Run Deployment Workflow for Test Deployment Target in Prodc Workspace
+        id: Deploying
+        run: |
+          databricks bundle run "staging-Forecast Model Validation and Migration" -t prod

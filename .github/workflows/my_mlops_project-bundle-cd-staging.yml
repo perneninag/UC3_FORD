@@ -36,4 +36,4 @@ jobs:
       - name: Run Deployment Workflow for Test Deployment Target in Staging Workspace
         id: Deploying
         run: |
-          databricks bundle run "staging-Forecast Model Validation and Migration" -t test
+          databricks bundle run "staging-Forecast Model Validation and Migration" -t staging

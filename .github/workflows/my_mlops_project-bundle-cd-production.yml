@@ -1,0 +1,35 @@
+# This GitHub workflow deploys Bundle resources (ML resource config and more)
+# defined under my_mlops_project/resources/*
+# and my_mlops_project/databricks.yml with production deployment target configs,
+# when PRs are merged into the default branch
+name: Bundle Deployment for my_mlops_project Production
+
+on:
+  push:
+    branches:
+      - 'release'
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./my_mlops_project
+
+env:
+  DATABRICKS_HOST: https://dbc-325dd65c-6716.cloud.databricks.com
+  DATABRICKS_TOKEN: ${{secrets.DATABRICKS_TOKEN}}
+
+jobs:
+  Production:
+    concurrency: my_mlops_project-production-bundle-job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@v0.236.0
+      - name: Validate Bundle For Production
+        id: validate
+        run: |
+          databricks bundle validate -t prod
+      - name: Deploy Bundle to Production
+        id: deploy
+        run: |
+          databricks bundle deploy -t prod

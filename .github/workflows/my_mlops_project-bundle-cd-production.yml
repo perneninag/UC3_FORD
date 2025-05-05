@@ -12,7 +12,7 @@ on:
 
 defaults:
   run:
-    working-directory: ./uc1_project
+    working-directory: ./uc3_project
 
 env:
   DATABRICKS_HOST: https://dbc-325dd65c-6716.cloud.databricks.com
@@ -20,7 +20,7 @@ env:
 
 jobs:
   Production:
-    concurrency: uc1_project-production-bundle-job
+    concurrency: uc3_project-production-bundle-job
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,4 +36,4 @@ jobs:
       - name: Run Deployment Workflow for Test Deployment Target in Prodc Workspace
         id: Deploying
         run: |
-          databricks bundle run "forecast_model_validation_and_migration" -t prod
+          databricks bundle run "model_training_job" -t prod

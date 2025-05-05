@@ -2,7 +2,7 @@
 # defined under my_mlops_project/resources/*
 # and my_mlops_project/databricks.yml with staging deployment target configs,
 # when PRs are merged into the default branch
-name: Bundle Deployment for my_mlops_project Staging
+name: Bundle Deployment for uc3_project to  Staging
 
 on:
   push:

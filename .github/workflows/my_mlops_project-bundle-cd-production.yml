@@ -1,14 +1,16 @@
 # This GitHub workflow deploys Bundle resources (ML resource config and more)
 # defined under my_mlops_project/resources/*
-# and my_mlops_project/databricks.yml with production deployment target configs,
+# and my_mlops_project/databricks.yml with staging deployment target configs,
 # when PRs are merged into the default branch
-name: Bundle Deployment for my_mlops_project Production
+name: Bundle Deployment for uc3_project to Production
 
 on:
   push:
     branches:
       - 'release'
   workflow_dispatch:
+  repository_dispatch:
+    types: [databricks_event]
 
 defaults:
   run:
@@ -28,12 +30,12 @@ jobs:
       - name: Validate Bundle For Production
         id: validate
         run: |
-          databricks bundle validate -t prod
+          databricks bundle validate -t Prod
       - name: Deploy Bundle to Production
         id: deploy
         run: |
-          databricks bundle deploy -t prod
-      - name: Run Deployment Workflow for Test Deployment Target in Prodc Workspace
+          databricks bundle deploy -t Prod
+      - name: Run Deployment Workflow for Test Deployment Target in Production Workspace
         id: Deploying
         run: |
-          databricks bundle run "model_training_job" -t prod
+          databricks bundle run model_training_job -t Prod

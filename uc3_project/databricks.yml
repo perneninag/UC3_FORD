@@ -28,9 +28,7 @@ targets:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
 
   staging:
-    mode: production
-    run_as:
-      service_principal_name: nageswararao.perneni@accenture.com
+    mode: development
     workspace:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
@@ -44,8 +42,6 @@ targets:
 
   prod:
     mode: production
-    run_as:
-      service_principal_name: nageswararao.perneni@accenture.com
     workspace:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.

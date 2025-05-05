@@ -33,6 +33,8 @@ targets:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
       root_path: /Workspace/Users/nageswararao.perneni@accenture.com/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      service_principal_name: nageswararao.perneni@accenture.com
     variables:
       catalog_name: uc1_staging
       branch_name: main
@@ -46,6 +48,8 @@ targets:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
       root_path: /Workspace/Users/nageswararao.perneni@accenture.com/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      service_principal_name: nageswararao.perneni@accenture.com
     variables:
       catalog_name: uc1_prod
       branch_name: release

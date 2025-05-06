@@ -61,7 +61,7 @@ model_config = mlflow.models.ModelConfig(development_config='rag_chain_config.ya
 
 # COMMAND ----------
 
-databricks_resources.get("vector_search_endpoint_name")
+#databricks_resources.get("vector_search_endpoint_name")
 
 # COMMAND ----------
 

@@ -244,7 +244,7 @@ import databricks.sdk.service.catalog as c
 #The table we'd like to index
 source_table_fullname = f"{catalog}.{db}.databricks_documentation"
 # Where we want to store our index
-vs_index_fullname = f"{catalog}.{db}.databricks_documentation_vs_index_motheesh"
+vs_index_fullname = f"{catalog}.{db}.databricks_documentation_vs_index_llmops"
 
 if not index_exists(vsc, VECTOR_SEARCH_ENDPOINT_NAME, vs_index_fullname):
   print(f"Creating index {vs_index_fullname} on endpoint {VECTOR_SEARCH_ENDPOINT_NAME}...")

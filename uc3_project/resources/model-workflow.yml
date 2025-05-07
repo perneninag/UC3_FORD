@@ -5,7 +5,7 @@ resources:
       tasks:
         - task_key: Train
           notebook_task:
-            notebook_path: ../notebooks/01-Data-Preparation-and-Index.py
+            notebook_path: ../notebooks/01-Data-Preparation-and-Index.ipynb
             base_parameters:
               env: ${bundle.target}
           email_notifications: {}
@@ -24,7 +24,7 @@ resources:
           depends_on:
             - task_key: Train
           notebook_task:
-            notebook_path: ../notebooks/02-Deploy-RAG-Chatbot-Model.py
+            notebook_path: ../notebooks/02-Deploy-RAG-Chatbot-Model.ipynb
             base_parameters:
               env: ${bundle.target}
           email_notifications: {}

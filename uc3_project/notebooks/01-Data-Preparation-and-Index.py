@@ -252,9 +252,9 @@ wait_for_model_serving_endpoint_to_be_ready(deployment_info.endpoint_name)
 
 # COMMAND ----------
 
-user_list = ["quentin.ambard@ford.com"]
+#user_list = ["quentin.ambard@ford.com"]
 # Set the permissions.
-agents.set_permissions(model_name=MODEL_NAME_FQN, users=user_list, permission_level=agents.PermissionLevel.CAN_QUERY)
+#agents.set_permissions(model_name=MODEL_NAME_FQN, users=user_list, permission_level=agents.PermissionLevel.CAN_QUERY)
 
 print(f"Share this URL with your stakeholders: {deployment_info.review_app_url}")
 

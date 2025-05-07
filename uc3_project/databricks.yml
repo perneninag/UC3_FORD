@@ -36,7 +36,7 @@ targets:
     run_as:
       user_name: nageswararao.perneni@accenture.com
     variables:
-      catalog_name: uc1_staging
+      catalog_name: uc3_staging
       branch_name: main
     permissions:
       - user_name: nageswararao.perneni@accenture.com
@@ -51,7 +51,7 @@ targets:
     run_as:
       user_name: nageswararao.perneni@accenture.com
     variables:
-      catalog_name: uc1_prod
+      catalog_name: uc3_prod
       branch_name: release
     permissions:
       - user_name: nageswararao.perneni@accenture.com

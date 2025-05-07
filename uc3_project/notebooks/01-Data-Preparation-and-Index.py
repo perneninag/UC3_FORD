@@ -108,7 +108,7 @@ model_config = mlflow.models.ModelConfig(development_config='rag_chain_config.ya
 # MAGIC #endpoint_name ="databricks-meta-llama-3-3-70b-instruct"
 # MAGIC vector_search_as_retriever = DatabricksVectorSearch(
 # MAGIC     endpoint=endpoint_name,
-# MAGIC     index_name=retriever_config.get("vector_search_index")+"_motheesh",
+# MAGIC     index_name=retriever_config.get("vector_search_index")+"_llmops",
 # MAGIC     columns=[
 # MAGIC         vector_search_schema.get("primary_key"),
 # MAGIC         vector_search_schema.get("chunk_text"),
@@ -193,7 +193,7 @@ with mlflow.start_run(run_name="dbdemos_rag_quickstart"):
         artifact_path="chain",  # Required by MLflow
         input_example=model_config.get("input_example"),  # Save the chain's input schema
         resources=[
-            DatabricksVectorSearchIndex(index_name=model_config.get("retriever_config").get("vector_search_index")+"_motheesh"),
+            DatabricksVectorSearchIndex(index_name=model_config.get("retriever_config").get("vector_search_index")+"_llmops"),
             DatabricksServingEndpoint(endpoint_name=endpoint_name)
         ]
     )

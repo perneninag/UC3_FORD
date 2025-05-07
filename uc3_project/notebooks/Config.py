@@ -9,18 +9,18 @@
 
 # COMMAND ----------
 
-VECTOR_SEARCH_ENDPOINT_NAME="staging-one-env-shared-endpoint-0"
+VECTOR_SEARCH_ENDPOINT_NAME="one-env-shared-endpoint-0"
 
 #DATABRICKS_SITEMAP_URL = "https://docs.databricks.com/en/doc-sitemap.xml" 
 #DATABRICKS_SITEMAP_URL = "https://docs.databricks.com/aws/en/sitemap.xml"
 DATABRICKS_SITEMAP_URL = "https://www.ford.com/sitemap.xml"
 
-catalog = "uc1_staging"
+catalog = "uc3_staging"
 
 #email = spark.sql('select current_user() as user').collect()[0]['user']
 #username = email.split('@')[0].replace('.', '_')
 #dbName = db = f"dbdemos_rag_{username}"
-dbName = db = "forecast_schema"
+dbName = db = "usecase_3_chatbot"
 
 # COMMAND ----------
 

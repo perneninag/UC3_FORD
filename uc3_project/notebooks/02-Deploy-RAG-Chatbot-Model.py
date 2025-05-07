@@ -10,7 +10,7 @@
 # COMMAND ----------
 
 # DBTITLE 1,Init our resources and catalog
-# MAGIC %run ../_resources/00-init $reset_all_data=false
+# MAGIC %run ./00-init $reset_all_data=false
 
 # COMMAND ----------
 

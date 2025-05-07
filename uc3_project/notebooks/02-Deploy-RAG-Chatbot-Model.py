@@ -84,7 +84,7 @@ display(final_df)
 
 # COMMAND ----------
 
-display(spark.table("databricks_documentation_vs_index_motheesh").limit(2))
+display(spark.table("databricks_documentation_vs_index_llmops").limit(2))
 
 # COMMAND ----------
 

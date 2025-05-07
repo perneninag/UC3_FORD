@@ -5,7 +5,7 @@ resources:
       tasks:
         - task_key: Train
           notebook_task:
-            notebook_path: ../notebooks/01-Data-Preparation-and-Index.ipynb
+            notebook_path: ../notebooks/01-Load-Data-and-create-index.ipynb
             base_parameters:
               env: ${bundle.target}
           email_notifications: {}

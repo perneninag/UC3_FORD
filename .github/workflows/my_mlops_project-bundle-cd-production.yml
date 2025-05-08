@@ -1,8 +1,8 @@
 # This GitHub workflow deploys Bundle resources (ML resource config and more)
 # defined under my_mlops_project/resources/*
-# and my_mlops_project/databricks.yml with production deployment target configs,
+# and my_mlops_project/databricks.yml with staging deployment target configs,
 # when PRs are merged into the default branch
-name: Bundle Deployment for my_mlops_project Production
+name: Bundle Deployment for uc3_project to Production
 
 on:
   push:
@@ -10,9 +10,10 @@ on:
       - 'release'
   workflow_dispatch:
 
+
 defaults:
   run:
-    working-directory: ./uc1_project
+    working-directory: ./uc3_project
 
 env:
   DATABRICKS_HOST: https://dbc-325dd65c-6716.cloud.databricks.com
@@ -20,20 +21,27 @@ env:
 
 jobs:
   Production:
-    concurrency: uc1_project-production-bundle-job
+    concurrency: uc3_project-production-bundle-job
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: databricks/setup-cli@v0.236.0
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "uc3-staging"
+          replace: "uc3-prod"
+          include: "uc3-project/notebooks/config.ipynb"
+          regex: true
       - name: Validate Bundle For Production
         id: validate
         run: |
-          databricks bundle validate -t prod
+          databricks bundle validate -t Prod
       - name: Deploy Bundle to Production
         id: deploy
         run: |
-          databricks bundle deploy -t prod
-      - name: Run Deployment Workflow for Test Deployment Target in Prodc Workspace
+          databricks bundle deploy -t Prod
+      - name: Run Deployment Workflow for Test Deployment Target in Production Workspace
         id: Deploying
         run: |
-          databricks bundle run "forecast_model_validation_and_migration" -t prod
+          databricks bundle run model_training_job -t Prod

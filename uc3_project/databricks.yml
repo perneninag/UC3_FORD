@@ -1,14 +1,12 @@
 # This is a Databricks asset bundle definition for job_test.
 # See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
 bundle:
-  name: mlops_validation_job
+  name: llmops_model_job
   uuid: f1696099-d686-46be-8379-e52cffbfbdcb
 
 variables:
-  source_catalog:
-    description: Source catalog for the model
-  target_catalog:
-    description: Source catalog for the model
+  catalog_name:
+    description: Catalog where LLM model is deployed
   branch_name:
     description: project branch to use in the code
 
@@ -24,8 +22,7 @@ targets:
     mode: development
     default: true
     variables:
-      source_catalog: uc1_dev
-      target_catalog: uc1_dev
+      catalog_name: uc1_dev
       branch_name: main
     workspace:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
@@ -36,9 +33,10 @@ targets:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
       root_path: /Workspace/Users/nageswararao.perneni@accenture.com/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      user_name: nageswararao.perneni@accenture.com
     variables:
-      source_catalog: uc1_dev
-      target_catalog: uc1_staging
+      catalog_name: uc3_staging
       branch_name: main
     permissions:
       - user_name: nageswararao.perneni@accenture.com
@@ -50,9 +48,10 @@ targets:
       host: https://dbc-325dd65c-6716.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/nageswararao.perneni@accenture.com to make sure we only have a single copy.
       root_path: /Workspace/Users/nageswararao.perneni@accenture.com/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      user_name: nageswararao.perneni@accenture.com
     variables:
-      source_catalog: uc1_staging
-      target_catalog: uc1_prod
+      catalog_name: uc3_prod
       branch_name: release
     permissions:
       - user_name: nageswararao.perneni@accenture.com

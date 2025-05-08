@@ -1,0 +1,42 @@
+resources:
+  jobs:
+    model_training_job:
+      name: ${bundle.target}-llmops_project-model-job
+      tasks:
+        - task_key: Train
+          notebook_task:
+            notebook_path: ../notebooks/01-Load-Data-and-create-index.ipynb
+            base_parameters:
+              env: ${bundle.target}
+          email_notifications: {}
+          run_as:
+              user_name: nageswararao.perneni@accenture.com
+          git_source:
+            git_branch: ${var.branch_name}
+            git_provider: gitHub
+            git_url: https://github.com/perneninag/UC3_FORD
+          max_concurrent_runs: 1
+          queue:
+            enabled: true
+          webhook_notifications: {}
+        - task_key: ModelDeployment
+    #      job_cluster_key: model_training_job_cluster
+          depends_on:
+            - task_key: Train
+          notebook_task:
+            notebook_path: ../notebooks/02-Deploy-RAG-Chatbot-Model.ipynb
+            base_parameters:
+              env: ${bundle.target}
+          email_notifications: {}
+          run_as:
+              user_name: nageswararao.perneni@accenture.com
+          git_source:
+            git_branch: ${var.branch_name}
+            git_provider: gitHub
+            git_url: https://github.com/perneninag/UC3_FORD
+          max_concurrent_runs: 1
+          queue:
+            enabled: true
+          webhook_notifications: {}
+
+  

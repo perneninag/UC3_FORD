@@ -36,12 +36,12 @@ jobs:
       - name: Validate Bundle For Production
         id: validate
         run: |
-          databricks bundle validate -t Prod
+          databricks bundle validate -t prod
       - name: Deploy Bundle to Production
         id: deploy
         run: |
-          databricks bundle deploy -t Prod
+          databricks bundle deploy -t prod
       - name: Run Deployment Workflow for Test Deployment Target in Production Workspace
         id: Deploying
         run: |
-          databricks bundle run model_training_job -t Prod
+          databricks bundle run model_training_job -t prod

@@ -9,8 +9,8 @@ on:
     branches:
       - 'release'
   workflow_dispatch:
-  repository_dispatch:
-    types: [databricks_event]
+#  repository_dispatch:
+#    types: [databricks_event]
 
 defaults:
   run:
@@ -27,6 +27,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: databricks/setup-cli@v0.236.0
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "uc3-staging"
+          replace: "uc3-prod"
+          include: "uc3-project/notebooks/config.ipynb"
+          regex: true
       - name: Validate Bundle For Production
         id: validate
         run: |

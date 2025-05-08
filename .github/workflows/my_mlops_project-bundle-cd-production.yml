@@ -9,8 +9,7 @@ on:
     branches:
       - 'release'
   workflow_dispatch:
-#  repository_dispatch:
-#    types: [databricks_event]
+
 
 defaults:
   run:

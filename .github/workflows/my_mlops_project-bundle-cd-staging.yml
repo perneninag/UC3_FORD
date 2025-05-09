@@ -5,9 +5,9 @@
 name: Bundle Deployment for uc3_project to  Staging
 
 on:
-  push:
-    branches:
-      - 'main'
+#  push:
+#    branches:
+#      - 'main'
   workflow_dispatch:
 
 
